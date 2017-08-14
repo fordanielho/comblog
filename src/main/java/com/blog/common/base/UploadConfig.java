@@ -7,9 +7,9 @@ import org.springframework.util.ResourceUtils;
 
 import java.io.File;
 
-@PropertySource("classpath:upload.properties")
-@Component
-@ConfigurationProperties(prefix = "upload")
+//@PropertySource("classpath:upload.properties")
+//@Component
+//@ConfigurationProperties(prefix = "upload")
 public class UploadConfig {
 
     public static String basePath;//基础路径
