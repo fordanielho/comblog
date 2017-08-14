@@ -31,8 +31,8 @@ public class MybatisGenerator {
     /**
      * 本机相关,项目所在地址和作者等
      */
-    private final String projectDir = "D://Demo//";
-    private final String outputDir = projectDir+"me//src//main//java//";
+    private final String projectDir = "G://work//";
+    private final String outputDir = projectDir+"comblog//src//main//java//";
     private final String author = "hejj";
 
     //项目相关
@@ -116,7 +116,7 @@ public class MybatisGenerator {
         // 字段名生成策略
         strategy.setFieldNaming(NamingStrategy.underline_to_camel);
         // 自定义实体父类
-         strategy.setSuperEntityClass("org.opsteel.wcyl.commons.base.model.BaseModel");
+         strategy.setSuperEntityClass("com.blog.common.base.BaseModel");
 
         // 自定义实体，公共字段
         // strategy.setSuperEntityColumns(new String[] { "test_id", "age" });
@@ -127,7 +127,7 @@ public class MybatisGenerator {
         // 自定义 service 实现类父类
         // strategy.setSuperServiceImplClass("com.baomidou.demo.TestServiceImpl");
         // 自定义 controller 父类
-        strategy.setSuperControllerClass("org.opsteel.wcyl.commons.base.BaseController");
+        strategy.setSuperControllerClass("com.blog.common.base.BaseController");
         // 【实体】是否生成字段常量（默认 false）
         // public static final String ID = "test_id";
         // strategy.setEntityColumnConstant(true);
