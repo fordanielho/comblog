@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.blog.module.admin.mapper.AdminMapper">
+    <resultMap id="AdminMap" type="com.blog.module.model.Admin">
+        <result column="username" property="username" />
+        <result column="password" property="password" />
+        <result column="email" property="email" />
+        <result column="github" property="github" />
+        <result column="twitter" property="twitter" />
+        <result column="md" property="md" />
+        <result column="resume" property="resume" />
+        <result column="avatar" property="avatar" />
+    </resultMap>
+
+
+    <!-- 通过用户名和密码获取账户信息，可以用于登录或者其他获取信息-->
+    <select id="getAdminByParas" parameterType="java.util.Map" resultMap="AdminMap">
+        select a.* from admin a
+        where a.username = #{username}
+        <if test="password!=null and password !=''">
+            and a.password = #{password}
+        </if>
+    </select>
+
+    <!--更改信息-->
+    <update id="updateAdminInfo"  parameterType="com.blog.module.model.Admin">
+        UPDATE admin
+        <trim prefix="set" suffixOverrides=",">
+            <if test="password!=null">password=#{password},</if>
+            <if test="email!=null">email=#{email},</if>
+            <if test="github!=null">github=#{github},</if>
+            <if test="md!=null">md=#{md},</if>
+            <if test="resume!=null">resume=#{resume},</if>
+            <if test="avatar!=null">avatar=#{avatar},</if>
+        </trim>
+        WHERE username=#{username}
+    </update>
+    <!--更改信息-->
+    <insert id="addAdminInfo"  parameterType="com.blog.module.model.Admin">
+      insert into admin(username,password)
+      values(#{username},#{password})
+    </insert>
+</mapper>
